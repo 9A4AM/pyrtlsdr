@@ -4,12 +4,16 @@ Simple smoke test to verify packaging without requiring a full test suite run.
 This test is run in `.github/workflows/dist-test.yml` to verify that the package
 can be installed from a wheel and used in a clean environment.
 """
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 
 
 def test_pkg_version():
+    if sys.version_info < (3, 11):
+        print("Skipping test_pkg_version: tomllib is only available in python 3.11 and above")
+        return
     import rtlsdr
     import tomllib
 
