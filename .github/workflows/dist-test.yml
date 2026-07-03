@@ -76,8 +76,10 @@ jobs:
         rm -Rf rtlsdr
     # Test the built distributions in isolated environments to ensure they're packaged properly
     - name: Test wheel
+      shell: bash
       run: uv run --isolated --no-project --with pyrtlsdrlib --with dist/*.whl smoke_test.py
     - name: Test sdist
+      shell: bash
       run: uv run --isolated --no-project --with pyrtlsdrlib --with dist/*.tar.gz smoke_test.py
 
   deploy:
