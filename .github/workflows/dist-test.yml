@@ -65,13 +65,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-      # Note: We're exporting the lockfile without the project or its direct dependencies included.
-      # Then we avoid using uv elsewhere to ensure we're testing the installed package
-      # and not the development environment.
-    - name: Export Lockfile
-      run: uv export --frozen --only-group test --only-group doc --format requirements-txt -o requirements.txt
-    - name: Install dependencies
-      run: pip install -r requirements.txt
     - name: Download artifacts
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
       with:
@@ -81,25 +74,11 @@ jobs:
       shell: bash
       run: |
         rm -Rf rtlsdr
-    - name: Install wheel
-      shell: bash
-      run: pip install dist/*.whl
+    # Test the built distributions in isolated environments to ensure they're packaged properly
     - name: Test wheel
-      shell: bash
-      run: py.test tests/test_basic.py
-
-    - name: Uninstall wheel
-      shell: bash
-      run: |
-        pip uninstall -y pyrtlsdr
-    - name: Install sdist
-      shell: bash
-      run: |
-        pip uninstall -y pyrtlsdr
-        pip install dist/*.tar.gz
+      run: uv run --isolated --no-project --with pyrtlsdrlib --with dist/*.whl smoke_test.py
     - name: Test sdist
-      shell: bash
-      run: py.test tests/test_basic.py
+      run: uv run --isolated --no-project --with pyrtlsdrlib --with dist/*.tar.gz smoke_test.py
 
   deploy:
     needs: test
