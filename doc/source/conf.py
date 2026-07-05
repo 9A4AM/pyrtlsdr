@@ -46,6 +46,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon',
     'myst_parser',
+    'mdinclude',
     'sphinx_design',
 ]
 
