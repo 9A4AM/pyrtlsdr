@@ -45,7 +45,17 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon',
+    'myst_parser',
     'sphinx_design',
+]
+
+myst_enable_extensions = [
+    "deflist",
+    "gfm_autolink",
+    "html_image",
+    "linkify",
+    "smartquotes",
+    "tasklist",
 ]
 
 autodoc_member_order = 'groupwise'
