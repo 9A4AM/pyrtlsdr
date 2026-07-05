@@ -6,8 +6,17 @@
 Welcome to pyrtlsdr's documentation!
 ====================================
 
+
+.. mdinclude:: ../../README.md
+   :parser: myst_parser.sphinx_
+   :start-line: 2
+   :end-before: # Installation
+
+
+Contents
+========
+
 .. toctree::
-   :caption: Contents
    :name: mastertoc
    :maxdepth: 2
 

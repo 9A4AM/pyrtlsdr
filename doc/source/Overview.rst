@@ -2,6 +2,7 @@
 Overview
 ========
 
-.. include:: ../../README.md
+.. mdinclude:: ../../README.md
     :parser: myst_parser.sphinx_
-    :start-line: 2
+    :start-after: # Installation
+    :inject: # Installation
