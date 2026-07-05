@@ -23,7 +23,6 @@ class MDInclude(BaseInclude):
 
     option_spec = BaseInclude.option_spec.copy() if BaseInclude.option_spec else {}
     option_spec["inject"] = str
-    optional_arguments = 1
 
     def read_file(self, filename: str) -> str:
         """Override of sphinx.directives.other.Include.read_file to handle the ``inject`` option
