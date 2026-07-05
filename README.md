@@ -1,7 +1,22 @@
 # pyrtlsdr
+
+[![uv][uv-badge]][uv-link] [![PyPI - Version][pypi-version-badge]][pypi-version-link] ![PyPI - PyVersions][pypi-pyversions-badge] ![GitHub Workflow Status][github-workflow-badge] ![PyPI - Downloads][pypi-downloads-badge] [![codecov][codecov-badge]][codecov-link]
+
+
+
+[uv-badge]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json
+[uv-link]: https://docs.astral.sh/uv/
+[pypi-version-badge]: https://img.shields.io/pypi/v/pyrtlsdr
+[pypi-version-link]: https://pypi.org/project/pyrtlsdr
+[pypi-pyversions-badge]: https://img.shields.io/pypi/pyversions/pyrtlsdr
+[github-workflow-badge]: https://img.shields.io/github/actions/workflow/status/pyrtlsdr/pyrtlsdr/python-package.yml
+[pypi-downloads-badge]: https://img.shields.io/pypi/dm/pyrtlsdr
+[codecov-badge]: https://img.shields.io/codecov/c/github/pyrtlsdr/pyrtlsdr
+[codecov-link]: https://codecov.io/gh/pyrtlsdr/pyrtlsdr
+
+
 A Python wrapper for librtlsdr (a driver for Realtek RTL2832U based SDR's)
 
-[![PyPI](https://img.shields.io/pypi/v/pyrtlsdr)](https://pypi.org/project/pyrtlsdr) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pyrtlsdr/pyrtlsdr/Python%20package) ![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrtlsdr) [![Coveralls](https://img.shields.io/coveralls/github/pyrtlsdr/pyrtlsdr)](https://coveralls.io/github/pyrtlsdr/pyrtlsdr)
 
 # Description
 
