@@ -11,7 +11,7 @@
 [pypi-pyversions-badge]: https://img.shields.io/pypi/pyversions/pyrtlsdr
 [github-workflow-badge]: https://img.shields.io/github/actions/workflow/status/pyrtlsdr/pyrtlsdr/python-package.yml
 [pypi-downloads-badge]: https://img.shields.io/pypi/dm/pyrtlsdr
-[codecov-badge]: https://img.shields.io/codecov/c/github/pyrtlsdr/pyrtlsdr
+[codecov-badge]: https://codecov.io/github/pyrtlsdr/pyrtlsdr/graph/badge.svg?token=bpD2HYbc64
 [codecov-link]: https://codecov.io/gh/pyrtlsdr/pyrtlsdr
 
 
