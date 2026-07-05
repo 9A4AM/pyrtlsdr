@@ -51,26 +51,15 @@ jobs:
         uv run pytest --cov-config .coveragerc --cov=rtlsdr
         uv run pytest --cov-append --cov-config .coveragerc --cov=rtlsdr --no-overrides --pyargs tests/no_override_client_mode.py
         uv run pytest --cov-append --cov-config .coveragerc --cov=rtlsdr --no-overrides --pyargs tests/no_override_dll_loader.py
-    - name: Upload to Coveralls
+    - name: Generate coverage reports
       run: |
-        uv pip install coveralls
-        uv run python -m coveralls --service=github
+        uv run coverage report
+        uv run coverage xml
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        env_vars: OS,PYTHON
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        COVERALLS_FLAG_NAME: run-${{ matrix.python-version }}
-        COVERALLS_PARALLEL: true
-
-  coveralls:
-    name: Indicate completion to coveralls.io
-    needs: test
-    runs-on: blacksmith-2vcpu-ubuntu-2404
-    permissions:
-      contents: read
-    container: python:3-slim@sha256:b877e50bd90de10af8d82c57a022fc2e0dc731c5320d762a27986facfc3355c1
-    steps:
-    - name: Finished
-      run: |
-        pip3 install --upgrade coveralls
-        coveralls --finish
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OS: ${{ matrix.os }}
+        PYTHON: ${{ matrix.python-version }}
