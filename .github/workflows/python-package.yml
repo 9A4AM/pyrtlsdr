@@ -51,9 +51,8 @@ jobs:
         uv run pytest --cov-config .coveragerc --cov=rtlsdr
         uv run pytest --cov-append --cov-config .coveragerc --cov=rtlsdr --no-overrides --pyargs tests/no_override_client_mode.py
         uv run pytest --cov-append --cov-config .coveragerc --cov=rtlsdr --no-overrides --pyargs tests/no_override_dll_loader.py
-    - name: Combine coverage and generate report
+    - name: Generate coverage reports
       run: |
-        uv run coverage combine
         uv run coverage report
         uv run coverage xml
     - name: Upload coverage reports to Codecov
